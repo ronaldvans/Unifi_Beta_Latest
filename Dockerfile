@@ -17,7 +17,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && \
     openjdk-7-jre-headless \
     jsvc \
     mongodb-server && \
-  wget -nv https://www.ubnt.com/downloads/unifi/5.5.3-4bc07355c2/unifi_sysvinit_all.deb && \
+  wget -nv https://www.ubnt.com/downloads/unifi/5.4.10-ad88894310/unifi_sysvinit_all.deb && \
   dpkg --install unifi_sysvinit_all.deb && \
   rm unifi_sysvinit_all.deb && \
   apt-get -y autoremove wget && \
