@@ -18,6 +18,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && \
     jsvc \
     mongodb-server && \
   wget -nv https://dl.ubnt.com/unifi/5.7.7-6cd27c9088/unifi_sysvinit_all.deb && \
+  dpkg --remove --force-remove-reinstreq --dry-run unifi && \
   dpkg --install unifi_sysvinit_all.deb && \
   rm unifi_sysvinit_all.deb && \
   apt-get -y autoremove wget && \
