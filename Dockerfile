@@ -11,7 +11,6 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && \
     | tee -a /etc/apt/sources.list.d/mongodb.list && \
   apt-get update -q && \
   apt-get -y install \
-    supervisor \
     binutils \
     wget \
     openjdk-8-jre-headless \
@@ -32,9 +31,3 @@ VOLUME ["/usr/lib/unifi/data", "/usr/lib/unifi/logs", "/var/log/supervisor"]
 
 # Set working directory for program
 WORKDIR /usr/lib/unifi
-
-#  Add supervisor config
-ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
-CMD ["/usr/bin/supervisord"]
-
