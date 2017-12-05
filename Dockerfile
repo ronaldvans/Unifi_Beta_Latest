@@ -6,9 +6,10 @@ ENV DEBIAN_FRONTEND noninteractive
 # Add apt repository keys, non-default sources, update apt database to load new data
 # Install deps and mongodb, download unifi .deb, install and remove package
 # Cleanup after apt to minimize image size
-RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && \
-  echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen" \
-    | tee -a /etc/apt/sources.list.d/mongodb.list && \
+# add mongo repo
+RUN \
+ apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6 && \
+ echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" >> /etc/apt/sources.list.d/mongo.list && \
   apt-get update -q && \
   apt-get -y install \
     binutils \
