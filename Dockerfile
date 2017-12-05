@@ -29,7 +29,7 @@ RUN \
  curl -o \
  /tmp/unifi.deb -L \
 	"https://dl.ubnt.com/unifi/5.7.8-5204056bce/unifi_sysvinit_all.deb" && \
- dpkg -i /tmp/unifi_sysvinit_all.deb && \
+ dpkg -i /tmp/unifi.deb && \
 
 # cleanup
  apt-get clean && \
